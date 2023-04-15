@@ -11,7 +11,7 @@ const getUsuarios = () =>{
 // todo: crear, actualizar, listar por id
 
 const crearUsuarios = (data) =>{
-    return axiosInstance.post('usuario',{
+    return axiosInstance.post('usuario', data, {
         headers:{
             'content-type':'application/json'
         }

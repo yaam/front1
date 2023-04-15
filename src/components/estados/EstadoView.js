@@ -111,7 +111,7 @@ export const EstadoView = (handleOpenModal) => {
                                                           onChange ={ (e) => handleOnChange(e)}
                                                           name="estados"
                                                           required
-                                                          value={estados}>
+                                                          value={estado}>
                                                             <option value="">--SELECIONE--</option>
                                                             <option value="Activo">Activo</option>
                                                             <option value="Inactivo">Inactivo</option>

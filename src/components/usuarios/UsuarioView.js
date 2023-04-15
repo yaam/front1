@@ -71,7 +71,7 @@ export const UsuarioView = (handleOpenModal) => {
       const { data} = await crearUsuarios(formularios);
       console.log(data);
       swal.close();
-      handleOpenModal();
+      //handleOpenModal();
       listarUsuario();
   } catch (error) {
       console.log(error);
@@ -113,7 +113,7 @@ export const UsuarioView = (handleOpenModal) => {
       const { data} = await editarUsuarios(usuarioId);
       console.log(data);
       swal.close();
-      handleOpenModal();
+      //handleOpenModal();
       listarUsuario();
   } catch (error) {
       console.log(error);
@@ -176,10 +176,10 @@ export const UsuarioView = (handleOpenModal) => {
                                                           onChange ={ (e) => handleOnChange(e)}
                                                           name="estado"
                                                           required
-                                                          value={estados}>
+                                                          value={estado}>
                                                             <option value="">--SELECIONE--</option>
-                                                            <option value={true}>Activo</option>
-                                                            <option value={false}>Inactivo</option>
+                                                            <option value={"Activo"}>Activo</option>
+                                                            <option value={"Inactivo"}>Inactivo</option>
                                                           </select>
                                                     </div>
                                       </div>
@@ -195,37 +195,44 @@ export const UsuarioView = (handleOpenModal) => {
                                                 
                                                                     <div className='row'>
                                                                       <div className='col'>
-                                                                              <ul>
-                                                                                {
-                                                                                  usuarios.map((usuario)=>{
-                                                                                    return (
-                                                                        <table className="table table-striped" key={usuario._id}>
-                                                                        <thead>
-                                                                        <tr>
-                                                                        <ul className="list-group list-group-horizontal" key={usuario._id}>
-                                                                        <th scope="col">Nombre</th>
-                                                                        <li className="list-group-item"  key={usuario.nombre}>{usuario.nombre}
-                                                                        </li>
-                                                                        <th scope="col">Email</th>
-                                                                        <li className="list-group-item"  key={usuario.email}>{usuario.email}
-                                                                        </li>
-                                                                        <th scope="col">estado</th>
-                                                                        <li className="list-group-item"  key={usuario.estado}>{usuario.estado}
-                                                                        </li>
-                                                                        <th scope="col">Fecha Creacion</th>
-                                                                        <li className="list-group-item"  key={usuario.fechaCreacion}>{dayjs(usuario.fechaCreacion).format('YYYY-MM-DD')}
-                                                                        </li>
-                                                                        <th scope="col">Fecha Actualizaciòn</th>
-                                                                        <li className="list-group-item"  key={usuario.fechaActualizacion}>{dayjs(usuario.fechaActualizacion).format('YYYY-MM-DD')}
-                                                                        </li>
-                                                                        <li><button  type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" >Editar</button></li>
-                                                                        </ul>
-                                                                        </tr>
-                                                                        </thead>
-                                                                        </table>
-                                                                                      )})
-                                                                                }
-                                                                              </ul>
+                                                                      
+              <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Fecha creac.</th>
+                  <th scope="col">Fecha act.</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  usuarios.map((usuario, index) => {
+                    return (
+                      <tr key={usuario._id}>
+                        <th scope="row">{index + 1}</th>
+                        <td>{usuario.nombre}</td>
+                        <td>{usuario.email}</td>
+                        <td>{usuario.estado}</td>
+                        <td>{dayjs(usuario.fechaCreacion).format('YYYY-MM-DD')}</td>
+                        <td>{dayjs(usuario.fechaActualizacion).format('YYYY-MM-DD')}</td>
+                        <td>
+                          <button 
+                            onbutton type="button" class="btn btn-success"
+                          >
+                            Editar
+                          </button>
+                        </td>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+              </table>
+            
                                                                       </div>      
                                                                     </div>
                           
