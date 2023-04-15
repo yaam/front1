@@ -149,7 +149,7 @@ export const EstadoView = (handleOpenModal) => {
                                                                         <th scope="col">Fecha Actualizaciòn</th>
                                                                         <li className="list-group-item"  key={estadoEquipo.fechaActualizacion}>{dayjs(estadoEquipo.fechaActualizacion).format('YYYY-MM-DD')}
                                                                         </li>
-                                                                        <li><button type="button" class="btn btn-success">Editar</button></li>
+                                                                        <li><button type="button" class="btn btn-success">Guardar</button></li>
                                                                         </ul>
                                                                         </tr>
                                                                         </thead>
