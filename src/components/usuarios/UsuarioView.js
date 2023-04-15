@@ -148,10 +148,10 @@ export const UsuarioView = (handleOpenModal) => {
                   <hr/>
                 </div>  
       <form onSubmit={(e)=> handleOnSubmit(e)}>
-        <div>
-                    <div classNameName='row'>
-                      <div classNameName='col'>
-                        <div classNameName="mb-3">
+        <div className='container'>
+                    <div className='row'>
+                      <div className='col'>
+                        <div className="mb-3">
                             <label className="form-label">Nombre</label>
                                 <div className="col-sm-10">
                                   <input name='nombre' type='text' onChange={ (e) => handleOnChange(e)}
@@ -165,7 +165,7 @@ export const UsuarioView = (handleOpenModal) => {
                                   <div className="col-sm-10">
                                     <input name='email' type="text" value={email} 
                                     onChange={(e) => handleOnChange(e)}
-                                    classNameName="form-control"/>
+                                    className="form-control"/>
                                   </div>    
                               </div>
                             </div>
